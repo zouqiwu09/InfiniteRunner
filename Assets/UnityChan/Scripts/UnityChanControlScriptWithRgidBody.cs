@@ -205,4 +205,12 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
 		col.height = orgColHight;
 		col.center = orgVectColCenter;
 	}
+
+	//destroy when touch object
+	void OnCollisionEnter (Collision other)
+	{
+		if (this.gameObject.CompareTag ("Finish") && other.gameObject.CompareTag ("Finish")) {
+			Destroy (this.gameObject);
+		}
+	}
 }
