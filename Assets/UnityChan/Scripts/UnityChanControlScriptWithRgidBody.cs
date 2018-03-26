@@ -5,6 +5,7 @@
 //
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 // 必要なコンポーネントの列記
 [RequireComponent(typeof (Animator))]
@@ -28,8 +29,9 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
 	// 旋回速度
 	public float rotateSpeed = 2.0f;
 	// ジャンプ威力
-	public float jumpPower = 3.0f; 
-	// キャラクターコントローラ（カプセルコライダ）の参照
+	public float jumpPower = 3.0f;
+    // キャラクターコントローラ（カプセルコライダ）の参照
+
 	private CapsuleCollider col;
 	private Rigidbody rb;
 	// キャラクターコントローラ（カプセルコライダ）の移動量
@@ -42,15 +44,21 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
 	private AnimatorStateInfo currentBaseState;			// base layerで使われる、アニメーターの現在の状態の参照
 
 	private GameObject cameraObject;	// メインカメラへの参照
-		
-// アニメーター各ステートへの参照
-	static int idleState = Animator.StringToHash("Base Layer.Idle");
+
+    // アニメーター各ステートへの参照
+    static int idleState = Animator.StringToHash("Base Layer.Idle");
 	static int locoState = Animator.StringToHash("Base Layer.Locomotion");
 	static int jumpState = Animator.StringToHash("Base Layer.Jump");
 	static int restState = Animator.StringToHash("Base Layer.Rest");
 
-// 初期化
-	void Start ()
+    float distance;
+    // set up a distance variable
+    Vector3 lastPosition;
+    public Text distanceText;
+    //set up the text variable showing on the screen
+
+    // 初期化
+    void Start ()
 	{
 		// Animatorコンポーネントを取得する
 		anim = GetComponent<Animator>();
@@ -62,6 +70,12 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
 		// CapsuleColliderコンポーネントのHeight、Centerの初期値を保存する
 		orgColHight = col.height;
 		orgVectColCenter = col.center;
+
+        lastPosition = transform.position;
+        distance = 0;
+        // initialise distance to be zero
+        SetDistanceText();
+        //add distance to distance text
 }
 	
 	
@@ -184,9 +198,15 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
 				anim.SetBool("Rest", false);
 			}
 		}
-	}
 
-	void OnGUI()
+        // calculating distance travelled
+        distance = Vector3.Distance(transform.position, lastPosition);
+        lastPosition = transform.position;
+        SetDistanceText();
+        //add distance to distance text
+    }
+
+    void OnGUI()
 	{
 		GUI.Box(new Rect(Screen.width -260, 10 ,250 ,150), "Interaction");
 		GUI.Label(new Rect(Screen.width -245,30,250,30),"Up/Down Arrow : Go Forwald/Go Back");
@@ -213,4 +233,10 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
 			Destroy (this.gameObject);
 		}
 	}
+
+    // display distance
+    void SetDistanceText ()
+    {
+        distanceText.text = "Distance:" + distance.ToString();
+    }
 }
