@@ -5,9 +5,15 @@ using UnityEngine;
 public class spwan_ground : MonoBehaviour {
 	private bool canSpawn = true;
 	private Vector3 targetPosition;
+    public int maximum = 3;
 	// Use this for initialization
 	void Start () {
-
+        ObjectManager.Instance.addGround(this.gameObject);
+        Debug.Log(ObjectManager.Instance.groundCount());
+        if (ObjectManager.Instance.groundCount() > maximum)
+        {
+            ObjectManager.Instance.deleteGround();
+        }
 		//targetPosition = this.gameObject.transform.parent.Find("body").transform.position + new Vector3 (0, 140, 0);
 	}
 	
@@ -19,7 +25,6 @@ public class spwan_ground : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col){ 
 		if (canSpawn) {
-			Debug.Log ("collide");
 			if (col.gameObject.name == "pawn") {
 				Transform temp_trans = this.gameObject.transform.parent.transform;
 				Vector3 tempV3 = temp_trans.position + new Vector3 (0, 0, 27);

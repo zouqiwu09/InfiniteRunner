@@ -51,7 +51,7 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
 	static int jumpState = Animator.StringToHash("Base Layer.Jump");
 	static int restState = Animator.StringToHash("Base Layer.Rest");
 
-    float distance;
+    float distance = 0f;
     // set up a distance variable
     Vector3 lastPosition;
     public Text distanceText;
@@ -200,7 +200,7 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
 		}
 
         // calculating distance travelled
-        distance = Vector3.Distance(transform.position, lastPosition);
+        distance += Vector3.Distance(transform.position, lastPosition);
         lastPosition = transform.position;
         SetDistanceText();
         //add distance to distance text
