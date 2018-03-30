@@ -50,7 +50,7 @@ public class spwan_ground : MonoBehaviour {
             Debug.Log(Vector3.Distance(this.gameObject.transform.parent.position, animeTarget));
             Debug.Log(this.gameObject.transform.parent.position);
             Debug.Log(animeTarget);
-            this.gameObject.transform.parent.position = Vector3.MoveTowards(this.gameObject.transform.parent.position, animeTarget, 0.05f);
+            this.gameObject.transform.parent.position = Vector3.MoveTowards(this.gameObject.transform.parent.position, animeTarget, 0.1f);
             yield return null;
         }
     }

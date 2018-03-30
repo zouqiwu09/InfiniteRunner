@@ -32,6 +32,8 @@ public class playerMovement : MonoBehaviour {
 		inputH = Input.GetAxis ("Horizontal");
 		inputV = Input.GetAxis ("Vertical");
 
+		Debug.Log (inputV);
+
 		anim.SetFloat ("inputH", inputH);
 		anim.SetFloat ("inputV", inputV);
 	}
