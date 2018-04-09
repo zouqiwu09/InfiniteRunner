@@ -56,7 +56,7 @@ public class playerMovement : MonoBehaviour {
             {
                 anim.SetBool("Jump", true);
                 anim.SetBool("Jumping", true);
-
+                
                 rb.AddForce(0, 500, 0);
             }
              
@@ -65,6 +65,15 @@ public class playerMovement : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        anim.SetBool("Jumping", false);
+        if (collision.gameObject.tag == "Ground") {
+            anim.SetBool("Jumping", false);
+            anim.SetBool("WallRun", false);
+            
+        }
+        else if (collision.gameObject.tag == "Wall")
+        {
+            anim.SetBool("WallRun", true);
+            
+        }
     }
 }

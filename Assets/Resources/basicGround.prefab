@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4432514949657346}
   m_Layer: 0
   m_Name: basicGround
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -178,3 +178,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06bb47ce4d8c049118f8269c98c997db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animeTarget: {x: 0, y: 0, z: 0}
+  maximum: 3
