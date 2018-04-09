@@ -22,7 +22,7 @@ public class Timer : MonoBehaviour
     void Update()
     {
         countdownText.text = ("" + timeLeft);  //display it on the screen 
-        
+
         // if time = 0, display "go!"
         if (timeLeft <= 0)
         {
@@ -43,7 +43,7 @@ public class Timer : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds (1);
+            yield return new WaitForSeconds(1);
             timeLeft--;                         //count down time
         }
     }
