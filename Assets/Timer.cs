@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
     // Create variables
     public int timeLeft = 3;
     public Text countdownText;
-
+    private bool running = false;
 
     // Use this for initialization
     void Start()
@@ -21,10 +21,13 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        countdownText.text = ("" + timeLeft);  //display it on the screen 
+        if (!running)
+        {
+            countdownText.text = ("" + timeLeft);  //display it on the screen 
+        }
 
         // if time = 0, display "go!"
-        if (timeLeft <= 0)
+        if (timeLeft <= 0 && !running)
         {
             StopCoroutine("LoseTime");
             countdownText.text = "Go!";
@@ -32,8 +35,9 @@ public class Timer : MonoBehaviour
 
         // if press W, text should disappear
         // doesn't work
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
+            running = true;
             countdownText.text = "";
         }
 
