@@ -13,7 +13,8 @@ public class playerMovement : MonoBehaviour {
     public float rotateScale;
     public float speed;
     public Rigidbody rb;
-
+    private bool touchLeftWall = false;
+    private bool touchRightWall = false;
 
     // Use this for initialization
     void Start () {
@@ -59,21 +60,55 @@ public class playerMovement : MonoBehaviour {
                 
                 rb.AddForce(0, 500, 0);
             }
-             
+
+            else if (touchLeftWall)
+            {
+                rb.AddForce(new Vector3(300, 500, 0));
+                anim.SetBool("JumpFromLeft", true);
+                
+            }
+
+            else if (touchRightWall)
+            {
+                rb.AddForce(new Vector3(-300, 500, 0));
+                anim.SetBool("JumpFromRight", true);
+            }
+
         }
+
+       
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ground") {
             anim.SetBool("Jumping", false);
-            anim.SetBool("WallRun", false);
+            anim.SetBool("WallRun_left", false);
+            anim.SetBool("WallRun_right", false);
             
+
+
         }
-        else if (collision.gameObject.tag == "Wall")
+        else if (collision.gameObject.tag == "LeftWall")
         {
-            anim.SetBool("WallRun", true);
+            anim.SetBool("WallRun_left", true);
+            touchLeftWall = true;
             
         }
+        else if (collision.gameObject.tag == "RightWall")
+        {
+            anim.SetBool("WallRun_right", true);
+            touchRightWall = true;
+
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        touchLeftWall = false;
+        touchRightWall = false;
+
+        anim.SetBool("jumpFromLeft", false);
+        anim.SetBool("jumpFromRight", false);
     }
 }
