@@ -63,14 +63,14 @@ public class playerMovement : MonoBehaviour {
 
             else if (touchLeftWall)
             {
-                rb.AddForce(new Vector3(300, 500, 0));
+                rb.AddForce(new Vector3(0, -500, 300));
                 anim.SetBool("JumpFromLeft", true);
                 
             }
 
             else if (touchRightWall)
             {
-                rb.AddForce(new Vector3(-300, 500, 0));
+                rb.AddForce(new Vector3(0, 500, 300));
                 anim.SetBool("JumpFromRight", true);
             }
 
@@ -109,6 +109,9 @@ public class playerMovement : MonoBehaviour {
         touchRightWall = false;
 
         anim.SetBool("jumpFromLeft", false);
+		anim.SetBool("WallRun_left", false);
         anim.SetBool("jumpFromRight", false);
+		anim.SetBool("WallRun_right", false);
+
     }
 }
