@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class health : MonoBehaviour {
     private const int hp_max = 4;
@@ -15,7 +16,7 @@ public class health : MonoBehaviour {
             heart.sprite = Resources.Load(""+hp, typeof(Sprite)) as Sprite;
         }
         else {
-            heart.sprite = Resources.Load("", typeof(Sprite)) as Sprite;
+            SceneManager.LoadScene(14);
         }
     }
 }
