@@ -15,6 +15,9 @@ public class playerMovement : MonoBehaviour {
     public Rigidbody rb;
     private bool touchLeftWall = false;
     private bool touchRightWall = false;
+    private float wIntervalF = 0f;
+    private float wIntervalL = 0f;
+
 
     // Use this for initialization
     void Start () {
@@ -48,9 +51,18 @@ public class playerMovement : MonoBehaviour {
         inputV = Input.GetAxis("Vertical");
 
         transform.Rotate(new Vector3(0, inputH*rotateScale, 0));
+        Debug.Log(inputH);
         transform.Translate(new Vector3(0, 0, inputV * speed));
         
-
+        if (Input.GetKey(KeyCode.W))
+        {
+            wIntervalL = Time.realtimeSinceStartup;
+            if (wIntervalL - wIntervalF < 0.5)
+            {
+                anim.SetBool("Roll", true);
+            }
+            anim.SetBool("Roll", false);
+        }
         if (Input.GetKey("space"))
         {
             if (!anim.GetBool("Jumping"))
