@@ -30,7 +30,7 @@ public class startPoint : MonoBehaviour {
             }
             else
             {
-                Debug.Log(col.gameObject.name);
+                //Debug.Log(col.gameObject.name);
             }
         }
     }

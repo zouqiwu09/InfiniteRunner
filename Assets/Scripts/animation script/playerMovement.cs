@@ -12,7 +12,7 @@ public class playerMovement : MonoBehaviour {
 	private float inputV;
     public float rotateScale;
     public float speed;
-    public Rigidbody rb;
+    private Rigidbody rb;
     private bool touchLeftWall = false;
     private bool touchRightWall = false;
     private float wIntervalF = 0f;
@@ -30,6 +30,7 @@ public class playerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
         anim.SetBool("Jump", false);
+        anim.SetBool("Roll", false);
         /*if (Input.GetKey ("space")) {
 			//-1 for the layer base layer
 			//0f is when how far through the animation do we switch
@@ -51,18 +52,20 @@ public class playerMovement : MonoBehaviour {
         inputV = Input.GetAxis("Vertical");
 
         transform.Rotate(new Vector3(0, inputH*rotateScale, 0));
-        Debug.Log(inputH);
         transform.Translate(new Vector3(0, 0, inputV * speed));
         
         if (Input.GetKey(KeyCode.W))
         {
-            wIntervalL = Time.realtimeSinceStartup;
-            if (wIntervalL - wIntervalF < 0.5)
+            
+            if ( Time.realtimeSinceStartup - wIntervalL < 0.5)
             {
                 anim.SetBool("Roll", true);
             }
-            anim.SetBool("Roll", false);
+            Debug.Log(Time.realtimeSinceStartup - wIntervalL);
+            wIntervalL = Time.realtimeSinceStartup;
         }
+
+
         if (Input.GetKey("space"))
         {
             if (!anim.GetBool("Jumping"))
@@ -75,14 +78,14 @@ public class playerMovement : MonoBehaviour {
 
             else if (touchLeftWall)
             {
-                rb.AddForce(new Vector3(0, -500, 300));
+                rb.AddForce(new Vector3(100, 200, 0));
                 anim.SetBool("JumpFromLeft", true);
                 
             }
 
             else if (touchRightWall)
             {
-                rb.AddForce(new Vector3(0, 500, 300));
+                rb.AddForce(new Vector3(-100, 200, 0));
                 anim.SetBool("JumpFromRight", true);
             }
 
@@ -101,13 +104,13 @@ public class playerMovement : MonoBehaviour {
 
 
         }
-        else if (collision.gameObject.tag == "LeftWall")
+        else if (collision.gameObject.tag == "LeftWall" && anim.GetBool("Jumping"))
         {
             anim.SetBool("WallRun_left", true);
             touchLeftWall = true;
             
         }
-        else if (collision.gameObject.tag == "RightWall")
+        else if (collision.gameObject.tag == "RightWall" && anim.GetBool("Jumping"))
         {
             anim.SetBool("WallRun_right", true);
             touchRightWall = true;
