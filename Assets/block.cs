@@ -16,9 +16,9 @@ public class block : MonoBehaviour {
         if (value < 0) value = -value;
         // safe random number
 
-        if (value < 20)
+        if (value < 5)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         else touch_by_user = true;
 	}
@@ -29,7 +29,8 @@ public class block : MonoBehaviour {
 	}
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(this);
+        health.Hurt();
+        Destroy(this.gameObject);
     }
     private void OnDestroy()
     {

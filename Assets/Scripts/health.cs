@@ -16,6 +16,8 @@ public class health : MonoBehaviour {
             heart.sprite = Resources.Load(""+hp, typeof(Sprite)) as Sprite;
         }
         else {
+            hp = hp_max;
+            heart.sprite = Resources.Load("" + hp, typeof(Sprite)) as Sprite;
             SceneManager.LoadScene(14);
         }
     }
