@@ -40,7 +40,7 @@ MonoBehaviour:
         stationaryBlending: 0.95
         motionBlending: 0.85
   ambientOcclusion:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       intensity: 0.34
       radius: 0.3
@@ -50,7 +50,7 @@ MonoBehaviour:
       ambientOnly: 0
       highPrecision: 0
   screenSpaceReflection:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       reflection:
         blendType: 0
@@ -72,16 +72,16 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       focusDistance: 2.07
-      aperture: 7.5
-      focalLength: 61
+      aperture: 12.3
+      focalLength: 65
       useCameraFov: 0
       kernelSize: 1
   motionBlur:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
-      shutterAngle: 263
-      sampleCount: 9
-      frameBlending: 0
+      shutterAngle: 239
+      sampleCount: 10
+      frameBlending: 0.33
   eyeAdaptation:
     m_Enabled: 0
     m_Settings:
@@ -94,8 +94,8 @@ MonoBehaviour:
       adaptationType: 0
       speedUp: 2
       speedDown: 1
-      logMin: -8
-      logMax: 6
+      logMin: -7
+      logMax: 13
   bloom:
     m_Enabled: 0
     m_Settings:
