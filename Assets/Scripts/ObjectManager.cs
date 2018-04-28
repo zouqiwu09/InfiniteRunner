@@ -6,7 +6,10 @@ public class ObjectManager : Singleton<ObjectManager> {
        
     // a object queue that is used to store generated ground
     protected Queue<GameObject> mGroundPool = new Queue<GameObject>();
-
+    public void init()
+    {
+        mGroundPool.Clear();
+    }
     public void addGround (GameObject ground)
     {
         mGroundPool.Enqueue(ground);
