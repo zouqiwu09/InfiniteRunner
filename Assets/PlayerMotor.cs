@@ -30,7 +30,7 @@ public class PlayerMotor : MonoBehaviour
         if (controller.isGrounded)
         {
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, 1);
-            if(Input.GetKeyDown(KeyCode.LeftArrow))
+            /*if(Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 transform.Rotate(new Vector3(0,30,0));
 
@@ -38,7 +38,7 @@ public class PlayerMotor : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 transform.Rotate(new Vector3(0, -30, 0));
-            }
+            }*/
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= speed;
             if (Input.GetButton("Jump"))

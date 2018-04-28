@@ -3326,6 +3326,8 @@ GameObject:
   - component: {fileID: 1287149608}
   - component: {fileID: 1287149612}
   - component: {fileID: 1287149611}
+  - component: {fileID: 1287149614}
+  - component: {fileID: 1287149613}
   m_Layer: 0
   m_Name: pawn
   m_TagString: Untagged
@@ -3373,7 +3375,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1287149605}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a93d12254f0a6ac4ebee6123631ea536, type: 3}
   m_Name: 
@@ -3389,7 +3391,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1287149605}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.42758578
   m_Height: 1.9586849
   m_Direction: 1
@@ -3504,6 +3506,39 @@ MonoBehaviour:
   source: {fileID: 1287149611}
   volLowRange: 0.5
   volHighRange: 1
+--- !u!143 &1287149613
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1287149605}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1287149614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1287149605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 447d34252db31674f9ea2653cf67e163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  speed: 6
+  jumpSpeed: 10
+  gravity: 20
+  pushPower: 2
 --- !u!1 &1292181366
 GameObject:
   m_ObjectHideFlags: 0
