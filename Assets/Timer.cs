@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour
     public int timeLeft = 3;
     public Text countdownText;
     private bool running = false;
+	protected int fontsize = 160;
 
     // Use this for initialization
     void Start()
@@ -24,6 +25,7 @@ public class Timer : MonoBehaviour
         if (!running)
         {
             countdownText.text = ("" + timeLeft);  //display it on the screen 
+			countdownText.fontSize -= 3;
         }
 
         // if time = 0, display "go!"
@@ -49,6 +51,7 @@ public class Timer : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             timeLeft--;                         //count down time
+			countdownText.fontSize = fontsize;
         }
     }
 }
