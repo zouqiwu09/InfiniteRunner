@@ -33,6 +33,7 @@ public class Timer : MonoBehaviour
         {
             StopCoroutine("LoseTime");
             countdownText.text = "Go!";
+			GameManager.Instance.onStart();
         }
 
         // if press W, text should disappear
