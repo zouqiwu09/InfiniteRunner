@@ -14,12 +14,14 @@ public class health : MonoBehaviour {
     private void Update(){
         if (hp > 0) {
             heart.sprite = Resources.Load(""+hp, typeof(Sprite)) as Sprite;
+            //health -1
         }
         else {
             hp = hp_max;
             heart.sprite = Resources.Load("" + hp, typeof(Sprite)) as Sprite;
             SceneManager.LoadScene(14);
             ObjectManager.Instance.init();
+            //die and reset healt
         }
     }
 }

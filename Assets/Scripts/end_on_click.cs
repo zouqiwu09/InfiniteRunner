@@ -10,5 +10,6 @@ public class end_on_click : MonoBehaviour {
 #else
         Application.Quit();
 #endif
+        //quit
     }
 }

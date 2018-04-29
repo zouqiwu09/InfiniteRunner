@@ -4,9 +4,9 @@ using UnityEngine;
 using System.Security.Cryptography;
 using System;
 
-public class block : MonoBehaviour {
-    bool touch_by_user = false;
-    RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+public class coin : MonoBehaviour {
+    private bool touch_by_user = false;
+    private RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
     // Use this for initialization
     void Start () {
         byte[] bs = new byte[8];
@@ -32,7 +32,6 @@ public class block : MonoBehaviour {
     {
         health.Hurt();
         Destroy(this.gameObject);
-        //hurt and destory the block
     }
     private void OnDestroy()
     {
