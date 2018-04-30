@@ -9,19 +9,29 @@ using UnityEngine;
  */
 public class GameManager : Singleton<GameManager> {
 
-	private bool start = false;
+	private static bool start = false;
 	private float Speed = 1;
 	private float No_Object = 5;
 	private string Diff = "Normal";
-
+    private const int hp_max = 4;
+    public int hp = hp_max;
 	public void onStart(){
 		start = true;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetBool("Run", true);
 	}
 
 	public bool isStarted(){
 		return start;
 	}
+
+    public void getFullHealth()
+    {
+        hp = hp_max;
+    }
+
+    public void clear()
+    {
+        start = false;
+    }
 
 	public void setDifficulty(float s, float n){
 		Speed = s;

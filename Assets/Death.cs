@@ -19,9 +19,10 @@ public class Death : MonoBehaviour {
     {
             if (col.gameObject.name == "pawn")
             {
-                SceneManager.LoadScene(14);
+                GameManager.Instance.getFullHealth();
                 ObjectManager.Instance.init();
-            }
+                SceneManager.LoadScene(14);
+        }
         
     }
 }

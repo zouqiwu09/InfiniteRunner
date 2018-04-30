@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour
 {
 
     // Create variables
-    public int timeLeft = 3;
+    public int timeLeft;
     public Text countdownText;
     private bool running = false;
 	protected int fontsize = 160;
@@ -15,6 +15,7 @@ public class Timer : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        timeLeft = 3;
         StartCoroutine("LoseTime");             //coroutine method
         Time.timeScale = 1;                     //make sure scale is 1
     }

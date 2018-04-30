@@ -34,6 +34,7 @@ public class PlayerMotor : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        lastPosition = transform.position;
     }
 
     void Update()
@@ -66,9 +67,8 @@ public class PlayerMotor : MonoBehaviour
 
         }
         moveDirection.y -= gravity * Time.deltaTime;
-        bool started = GameManager.Instance.isStarted();
 
-        if (started)
+        if (GameManager.Instance.isStarted())
         {
             anim.SetBool("Run", true);
             controller.Move(moveDirection * Time.deltaTime);
@@ -79,8 +79,9 @@ public class PlayerMotor : MonoBehaviour
 
         }
 
-        lastPosition = transform.position;
+  
         distance += Vector3.Distance(transform.position, lastPosition);
+        lastPosition = transform.position;
         SetDistanceText();
     }
     void OnControllerColliderHit(ControllerColliderHit hit)

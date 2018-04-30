@@ -11,7 +11,6 @@ public class spwan_ground : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         ObjectManager.Instance.addGround(this.gameObject);
-        Debug.Log(ObjectManager.Instance.groundCount());
         if (ObjectManager.Instance.groundCount() > maximum)
         {
             ObjectManager.Instance.deleteGround();
@@ -47,8 +46,6 @@ public class spwan_ground : MonoBehaviour {
     {
         while (Vector3.Distance(this.gameObject.transform.parent.position,animeTarget) > 0.01f)
         {
-            Debug.Log(Vector3.Distance(this.gameObject.transform.parent.position, animeTarget));
-            Debug.Log(this.gameObject.transform.parent.position);
             this.gameObject.transform.parent.position = Vector3.MoveTowards(this.gameObject.transform.parent.position, animeTarget, 0.1f);
             yield return null;
         }

@@ -5,22 +5,24 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class health : MonoBehaviour {
-    private const int hp_max = 4;
-    private static int hp = hp_max;
+
     public Image heart;
     public static void Hurt() {
-        hp--;
+        GameManager.Instance.hp--;
     }
     private void Update(){
-        if (hp > 0) {
-            heart.sprite = Resources.Load(""+hp, typeof(Sprite)) as Sprite;
+
+        if (GameManager.Instance.hp > 0) {
+            heart.sprite = Resources.Load(""+GameManager.Instance.hp, typeof(Sprite)) as Sprite;
             //health -1
         }
         else {
-            hp = hp_max;
-            heart.sprite = Resources.Load("" + hp, typeof(Sprite)) as Sprite;
-            SceneManager.LoadScene(14);
+            GameManager.Instance.getFullHealth();
+            heart.sprite = Resources.Load("" + GameManager.Instance.hp, typeof(Sprite)) as Sprite;
             ObjectManager.Instance.init();
+            GameManager.Instance.clear();
+            SceneManager.LoadScene(14);
+            
             //die and reset healt
         }
     }
