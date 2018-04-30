@@ -4,7 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+/*
+ * Qiwu Zou completed the animation logic, jump logic, game start logic, collison logic
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
 public class PlayerMotor : MonoBehaviour
 {
     public Animator anim;
@@ -52,7 +61,6 @@ public class PlayerMotor : MonoBehaviour
                 anim.SetBool("Jump", true);
                 anim.SetBool("Jumping", true);
 
-                //rb.AddForce(0, 500, 0);
                 moveDirection.y = jumpSpeed;
             }
 
@@ -71,8 +79,8 @@ public class PlayerMotor : MonoBehaviour
 
         }
 
-        distance += Vector3.Distance(transform.position, lastPosition);
         lastPosition = transform.position;
+        distance += Vector3.Distance(transform.position, lastPosition);
         SetDistanceText();
     }
     void OnControllerColliderHit(ControllerColliderHit hit)

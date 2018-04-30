@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Qiwu Zou completed the whole Game Manager System.
+ * This system controlls the flow of the game from start to the end.
+ *
+ */
 public class GameManager : Singleton<GameManager> {
 
 	private bool start = false;
