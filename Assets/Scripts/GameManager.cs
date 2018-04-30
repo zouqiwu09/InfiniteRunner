@@ -11,6 +11,7 @@ public class GameManager : Singleton<GameManager> {
 
 	public void onStart(){
 		start = true;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetBool("Run", true);
 	}
 
 	public bool isStarted(){

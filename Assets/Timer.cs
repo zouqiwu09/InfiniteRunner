@@ -36,14 +36,6 @@ public class Timer : MonoBehaviour
 			GameManager.Instance.onStart();
         }
 
-        // if press W, text should disappear
-        // doesn't work
-        if (Input.GetKey(KeyCode.W))
-        {
-            running = true;
-            countdownText.text = "";
-        }
-
     }
 
     IEnumerator LoseTime()                      //coroutine method for count down time

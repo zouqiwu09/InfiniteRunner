@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class PlayerMotor : MonoBehaviour
 {
@@ -12,8 +14,12 @@ public class PlayerMotor : MonoBehaviour
     public float jumpSpeed = 16.0F;
     public float gravity = 20.0F;
     private Vector3 moveDirection = Vector3.zero;
-
+    public Text distanceText;
     public float pushPower = 2.0F;
+
+    public float distance = 0f;
+    // set up a distance variable
+    Vector3 lastPosition;
 
     void Start()
     {
@@ -27,7 +33,7 @@ public class PlayerMotor : MonoBehaviour
         anim.SetBool("Roll", false);
 
         CharacterController controller = GetComponent<CharacterController>();
-        if (controller.isGrounded)
+        if (controller.isGrounded && anim.GetCurrentAnimatorStateInfo(0).IsName("Run"))
         {
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, 1);
             /*if(Input.GetKeyDown(KeyCode.LeftArrow))
@@ -52,7 +58,22 @@ public class PlayerMotor : MonoBehaviour
 
         }
         moveDirection.y -= gravity * Time.deltaTime;
-        controller.Move(moveDirection * Time.deltaTime);
+        bool started = GameManager.Instance.isStarted();
+
+        if (started)
+        {
+            anim.SetBool("Run", true);
+            controller.Move(moveDirection * Time.deltaTime);
+        }
+        else
+        {
+            controller.Move(new Vector3(0,0,0));
+
+        }
+
+        distance += Vector3.Distance(transform.position, lastPosition);
+        lastPosition = transform.position;
+        SetDistanceText();
     }
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
@@ -66,6 +87,12 @@ public class PlayerMotor : MonoBehaviour
 
         Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
         body.velocity = pushDir * pushPower;
+    }
+
+    // display distance
+    void SetDistanceText()
+    {
+        distanceText.text = "Distance:" + distance.ToString();
     }
 
     /*private void OnControllerColliderHit(Collision collision)
