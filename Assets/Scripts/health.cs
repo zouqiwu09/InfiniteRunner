@@ -21,7 +21,7 @@ public class health : MonoBehaviour {
             heart.sprite = Resources.Load("" + GameManager.Instance.hp, typeof(Sprite)) as Sprite;
             ObjectManager.Instance.init();
             GameManager.Instance.clear();
-            SceneManager.LoadScene(14);
+            SceneManager.LoadScene(2);
             
             //die and reset healt
         }

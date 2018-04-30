@@ -459,7 +459,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3
+  m_Intensity: 2
   m_Range: 1000
   m_SpotAngle: 179
   m_CookieSize: 10
@@ -1296,7 +1296,6 @@ RectTransform:
   m_Children:
   - {fileID: 1706990294}
   - {fileID: 1363465561}
-  - {fileID: 687845462}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1714,16 +1713,16 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 687845461}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7166597, y: 4.31666, z: 1}
   m_Children: []
-  m_Father: {fileID: 482480542}
-  m_RootOrder: 2
+  m_Father: {fileID: 1363465561}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 540, y: 380}
+  m_AnchoredPosition: {x: 28.666382, y: -172.6664}
   m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &687845463
@@ -3477,7 +3476,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1287149605}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f5df24e116344441288fdf15ef359393, type: 3}
@@ -3557,7 +3556,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1287149605}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86014e6711eee4f7c9f6e39b47f64feb, type: 3}
   m_Name: 
@@ -3955,13 +3954,14 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.3953623, y: 0.23166059, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 687845462}
   m_Father: {fileID: 482480542}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 500, y: 420}
+  m_AnchoredPosition: {x: 690.6, y: 515.1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1363465562
@@ -4297,11 +4297,16 @@ Prefab:
     - target: {fileID: 82965475493551566, guid: 76cef51ee0047e54886997184709b989,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4522799042006834, guid: 76cef51ee0047e54886997184709b989, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 82965475493551566, guid: 76cef51ee0047e54886997184709b989,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.533
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 76cef51ee0047e54886997184709b989, type: 2}

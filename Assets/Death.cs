@@ -21,7 +21,7 @@ public class Death : MonoBehaviour {
             {
                 GameManager.Instance.getFullHealth();
                 ObjectManager.Instance.init();
-                SceneManager.LoadScene(14);
+                SceneManager.LoadScene(2);
         }
         
     }
