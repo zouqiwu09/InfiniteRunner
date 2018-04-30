@@ -27,6 +27,7 @@ public class Timer : MonoBehaviour
         {
             countdownText.text = ("" + timeLeft);  //display it on the screen 
 			countdownText.fontSize -= 3;
+            if (countdownText.fontSize <= 3) { countdownText.fontSize = 3; }
         }
 
         // if time = 0, display "go!"
