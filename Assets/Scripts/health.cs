@@ -9,12 +9,12 @@ public class health : MonoBehaviour {
     public Image heart;
     public static void Hurt() {
         GameManager.Instance.hp--;
-    }
+    }//health -1
     private void Update(){
 
         if (GameManager.Instance.hp > 0) {
             heart.sprite = Resources.Load(""+GameManager.Instance.hp, typeof(Sprite)) as Sprite;
-            //health -1
+            //health bar -1
         }
         else {
             GameManager.Instance.getFullHealth();
@@ -27,3 +27,4 @@ public class health : MonoBehaviour {
         }
     }
 }
+//whole class written by Zhehu Yuan

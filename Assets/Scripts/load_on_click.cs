@@ -10,3 +10,4 @@ public class load_on_click : MonoBehaviour {
         //load another Scene
     }
 }
+//whole class written by Zhehu Yuan

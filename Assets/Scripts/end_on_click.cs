@@ -13,3 +13,4 @@ public class end_on_click : MonoBehaviour {
         //quit
     }
 }
+//whole class written by Zhehu Yuan
