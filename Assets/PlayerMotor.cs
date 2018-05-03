@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 /*
  * Qiwu Zou completed the animation logic, jump logic, game start logic, collison logic
- *
+ * Yuqing Gu wrote the distance method on 3/26/18,final unit testing and bug-fixes were accomplished by Qiwu Zou on 4/29/18
  *
  *
  *
