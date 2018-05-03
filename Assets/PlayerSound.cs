@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿//Muzhen Li wrote the code on 3/18/18
+//final bug-fixes were accomplished by Qiwu Zou on 4/1/18.
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
