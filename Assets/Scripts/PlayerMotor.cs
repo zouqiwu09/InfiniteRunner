@@ -5,9 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /*
- * Qiwu Zou completed the animation logic, jump logic, game start logic, collison logic
+ * Qiwu Zou completed the animation logic, jump logic, game start logic, collison logic (4/29)
  * Yuqing Gu wrote the distance method on 3/26/18,final unit testing and bug-fixes were accomplished by Qiwu Zou on 4/29/18
- *
+ * Ye Tian wrote character running logic (4/29)
  *
  *
  *
@@ -46,6 +46,7 @@ public class PlayerMotor : MonoBehaviour
         if (controller.isGrounded && anim.GetCurrentAnimatorStateInfo(0).IsName("Run"))
         {
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, 1);
+            //Removed
             /*if(Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 transform.Rotate(new Vector3(0,30,0));
@@ -71,6 +72,7 @@ public class PlayerMotor : MonoBehaviour
         if (GameManager.Instance.isStarted())
         {
             anim.SetBool("Run", true);
+            //Move
             controller.Move(moveDirection * Time.deltaTime);
         }
         else
@@ -84,6 +86,8 @@ public class PlayerMotor : MonoBehaviour
         lastPosition = transform.position;
         SetDistanceText();
     }
+
+    //Logic when hitting (for jump)
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         anim.SetBool("Jumping", false);
@@ -95,6 +99,7 @@ public class PlayerMotor : MonoBehaviour
             return;
 
         Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+        //Jump
         body.velocity = pushDir * pushPower;
     }
 
@@ -104,6 +109,7 @@ public class PlayerMotor : MonoBehaviour
         distanceText.text = "Distance:" + distance.ToString();
     }
 
+    //Removed
     /*private void OnControllerColliderHit(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
