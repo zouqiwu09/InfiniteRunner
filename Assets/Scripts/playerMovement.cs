@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Qiwu Zou completed the whole class at 4/25
+// The class is used to control the overall actions of the character
+
 public class playerMovement : MonoBehaviour {
 	//this to get the animator
 	public Animator anim;

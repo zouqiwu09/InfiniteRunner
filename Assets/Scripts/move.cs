@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Tutorial code written by Qiwu Zou at 3/22
 public class move : MonoBehaviour {
 
 	public Rigidbody rigid;
