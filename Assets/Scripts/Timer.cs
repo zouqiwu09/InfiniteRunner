@@ -1,6 +1,7 @@
 ﻿//Yuqing Gu wrote most of the code on 4/08/18
 //Bug-Fixes were accomplished by Qiwu Zou on 4/08/18
 //Final unit testing were accomplished by Qiwu Zou and Zehu Yuan on 4/29/18
+//Text animation completed by Qiwu Zou at 4/29
 
 using System.Collections;
 using System.Collections.Generic;

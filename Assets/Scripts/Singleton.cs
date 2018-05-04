@@ -1,4 +1,6 @@
-﻿// Singleton class is used for system classes
+﻿
+// Qiwu Zou completed at 3/24
+// Singleton class is used for system classes
 public class Singleton<T> where T : new()
 {
     private static T ms_instance;

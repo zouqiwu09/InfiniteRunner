@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * Qiwu Zou completed the whole Game Manager System.
+ * Qiwu Zou completed the whole Game Manager System.  (start as 3/24 but continue to update until 4/30)
  * This system controlls the flow of the game from start to the end.
  *
  */

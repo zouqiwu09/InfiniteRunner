@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Qiwu Zou completed the whole class (4/5)
+//This class is for spawning new tracks from the first ground.
+
 public class startPoint : MonoBehaviour {
     private bool canSpawn = true;
     private Vector3 targetPosition;

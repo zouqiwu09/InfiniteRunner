@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Qiwu Zou completed the whole class (4/5)
+// The class is for spawning tracks from other grounds except the first ground.
+// Also, it manages the animation of generating new ground
 public class spwan_ground : MonoBehaviour {
 	private bool canSpawn = true;
 	private Vector3 targetPosition;
@@ -42,6 +45,7 @@ public class spwan_ground : MonoBehaviour {
 		}
 	}
 
+    // rise animation
     IEnumerator rise()
     {
         while (Vector3.Distance(this.gameObject.transform.parent.position,animeTarget) > 0.01f)
